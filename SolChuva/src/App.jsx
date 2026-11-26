@@ -64,7 +64,14 @@ function App() {
             <h3>Próximos 10 dias</h3>
             {cidade.daily.slice(0, 10).map((dia) => (
               <div key={dia.date} className="dia">
-                <p>{dia.date}</p>
+                <p>
+                  {new Date(dia.date + "T12:00:00").toLocaleDateString(
+                    "pt-BR",
+                    {
+                      weekday: "long",
+                    },
+                  )}
+                </p>
                 <img
                   src={encontrarClima(dia.weather_code)?.icone}
                   alt="Clima"
