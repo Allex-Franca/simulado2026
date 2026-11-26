@@ -11,25 +11,138 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  padding-left: 20px;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
 .header img {
+  width: 60px;
+  height: 60px;
   background-color: #08060d;
   border-radius: 15px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+.header p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
 }
 .sim {
   display: flex;
   padding: 15px;
   width: 90%;
   gap: 10px;
+  color: white;
 }
-.sim input{
-  width: 70%;
+.sim input {
+  width: 75%;
   padding: 20px;
   border-radius: 20px;
+  background-color: #6565e0;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
-.sim button{
+.sim button {
   width: 20%;
   border-radius: 20px;
   background-color: rgb(101, 101, 224);
 }
+.sim input::placeholder {
+  color: white;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.resultado {
+  width: 90%;
+  padding: 25px;
+  background-color: #303030;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultado h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.resultado p {
+  color: #aaa;
+  margin: 5px 0;
+}
+
+.resultado .icon {
+  width: 100px;
+  height: 100px;
+}
+
+.clima-principal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.clima-principal p {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.descricao {
+  font-size: 18px;
+}
+
+.informacoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.informacoes p {
+  background-color: #454545;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  width: 200px;
+  margin: 0;
+  box-sizing: border-box;
+}
+.previsao {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.previsao h3 {
+  grid-column: 1 / -1;
+  color: white;
+}
+.dia {
+  background-color: #303030;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+.dia p {
+  margin: 5px;
+}
+.dia img {
+  width: 50px;
+  height: 50px;
+}
+
+

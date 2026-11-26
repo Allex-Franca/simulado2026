@@ -10,3 +10,8 @@
   box-sizing: border-box;
   background-color: #EEF0F7;
 }
+body {
+  margin: 0;
+  background-color: #202124;
+  font-family: Arial, sans-serif;
+}

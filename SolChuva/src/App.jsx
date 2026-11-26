@@ -14,6 +14,10 @@ function App() {
 
     setCidade(resultado);
   }
+  function encontrarClima(codigo) {
+    return codigosWmo.find((item) => item.codigo === codigo);
+  }
+  console.log(cidade?.current.weather_code);
 
   return (
     <div className="app">
@@ -25,20 +29,53 @@ function App() {
         </div>
       </div>
       <div className="sim">
-        <input 
+        <input
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
           placeholder="Digite o nome de uma cidade..."
-          type=""
         />
         <button onClick={buscar}>Buscar</button>
       </div>
-
       {cidade && (
-        <div>
-          <h2>{cidade.name}</h2>
-          <p>{cidade.current.temperature_2m} °C</p>
-        </div>
+        <>
+          <div className="resultado">
+            <div className="clima-resumo">
+              <h2>{cidade.name}</h2>
+              <div className="clima-principal">
+                <p>{cidade.current.temperature_2m} °C</p>
+                <img
+                  className="icon"
+                  src={encontrarClima(cidade.current.weather_code)?.icone}
+                  alt="Ícone do clima"
+                />
+              </div>
+              <p className="descricao">
+                {encontrarClima(cidade.current.weather_code)?.descricao}
+              </p>
+            </div>
+            <div className="informacoes">
+              <p>Umidade: {cidade.current.relative_humidity_2m}%</p>
+              <p>Vento: {cidade.current.wind_speed_10m} km/h</p>
+              <p>Sensação: {cidade.current.apparent_temperature} °C</p>
+              <p>Índice UV: {cidade.current.uv_index}</p>
+            </div>
+          </div>
+          <div className="previsao">
+            <h3>Próximos 10 dias</h3>
+            {cidade.daily.slice(0, 10).map((dia) => (
+              <div key={dia.date} className="dia">
+                <p>{dia.date}</p>
+                <img
+                  src={encontrarClima(dia.weather_code)?.icone}
+                  alt="Clima"
+                />
+                <p>{encontrarClima(dia.weather_code)?.descricao}</p>
+                <p>{dia.temperature_2m_max} °C</p>
+                <p>{dia.temperature_2m_min} °C</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
